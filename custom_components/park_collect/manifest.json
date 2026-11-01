@@ -1,0 +1,13 @@
+{
+  "domain": "park_collect",
+  "name": "Park & Collect",
+  "codeowners": ["@Park-Collect"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/Park-Collect/ha-park-collect",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Park-Collect/ha-park-collect/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

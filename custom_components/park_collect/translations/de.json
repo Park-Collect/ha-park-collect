@@ -1,0 +1,75 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Park & Collect verbinden",
+        "description": "Den API-Schlüssel erzeugen Sie in der Park-&-Collect-App unter Profil → API-Zugang.",
+        "data": { "api_key": "API-Schlüssel" }
+      },
+      "reauth_confirm": {
+        "title": "API-Schlüssel erneuern",
+        "description": "Der API-Schlüssel ist nicht mehr gültig. Erzeugen Sie in der App unter Profil → API-Zugang einen neuen.",
+        "data": { "api_key": "API-Schlüssel" }
+      }
+    },
+    "error": {
+      "invalid_auth": "Der API-Schlüssel ist ungültig, oder für das Konto liegt keine unterschriebene Vollmacht vor.",
+      "cannot_connect": "Park & Collect ist nicht erreichbar."
+    },
+    "abort": {
+      "already_configured": "Dieser API-Schlüssel ist bereits eingerichtet.",
+      "reauth_successful": "Der API-Schlüssel wurde aktualisiert."
+    }
+  },
+  "entity": {
+    "select": {
+      "parking_lot": { "name": "Standard-Parkplatz" }
+    },
+    "sensor": {
+      "last_report": {
+        "name": "Letzte Meldung",
+        "state": {
+          "offen": "Offen",
+          "halterermittlung_laeuft": "Halterermittlung läuft",
+          "halter_ermittelt": "Halter ermittelt",
+          "erstschreiben_versendet": "Erstschreiben versendet",
+          "abmahnung_versendet": "Abmahnung versendet",
+          "bezahlt": "Bezahlt",
+          "abgeschlossen": "Abgeschlossen"
+        }
+      }
+    }
+  },
+  "selector": {
+    "reason": {
+      "options": {
+        "privatparkplatz": "Parken auf Privatparkplatz",
+        "kundenparkplatz": "Parken auf Kundenparkplatz",
+        "ausfahrt": "Blockieren der Ausfahrt",
+        "parkplatz_blockiert": "Blockieren des Parkplatzes",
+        "zugang": "Versperrter Zugang zum Privatgelände",
+        "leistungsbetrug": "Leistungsbetrug",
+        "ladesaeule": "Sperrung der Ladesäule"
+      }
+    }
+  },
+  "services": {
+    "submit_report": {
+      "name": "Meldung übermitteln",
+      "description": "Übermittelt einen von einem Menschen geprüften Parkverstoß an Park & Collect.",
+      "fields": {
+        "parkplatz_id": { "name": "Parkplatz-ID", "description": "ID des Parkplatzes. Ohne Angabe gilt der Standard-Parkplatz." },
+        "kennzeichen": { "name": "Kennzeichen", "description": "Deutsches Kennzeichen, von einem Menschen geprüft." },
+        "beginn": { "name": "Beginn", "description": "Beginn des Verstoßes." },
+        "ende": { "name": "Ende", "description": "Ende des Aufenthalts." },
+        "grund": { "name": "Grund", "description": "Grund der Meldung." },
+        "vertragsstrafe": { "name": "Betrag", "description": "Betrag in ganzen Euro. Ohne Angabe gilt der Betrag des Parkplatzes." },
+        "abmahnen": { "name": "Unterlassungsabmahnung", "description": "Ohne Angabe gilt die Einstellung des Parkplatzes." },
+        "fahrzeug": { "name": "Fahrzeug", "description": "Marke, Modell, Farbe." },
+        "bemerkung": { "name": "Bemerkung", "description": "Freitext, höchstens 2.000 Zeichen." },
+        "bilder": { "name": "Fotos", "description": "1 bis 3 lokale Dateien (JPEG oder PNG), als Pfade oder als Einträge mit pfad und aufgenommen_am." },
+        "vorgang_id": { "name": "Vorgangs-ID", "description": "Eindeutige ID des Parkvorgangs. Verhindert Doppelmeldungen. Ohne Angabe zählen Parkplatz, Kennzeichen und Beginn." }
+      }
+    }
+  }
+}

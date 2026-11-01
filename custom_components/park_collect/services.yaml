@@ -1,0 +1,60 @@
+submit_report:
+  fields:
+    parkplatz_id:
+      example: 5563
+      selector:
+        number:
+          min: 1
+          mode: box
+    kennzeichen:
+      required: true
+      example: HN-AB 1234
+      selector:
+        text:
+    beginn:
+      required: true
+      selector:
+        datetime:
+    ende:
+      selector:
+        datetime:
+    grund:
+      default: privatparkplatz
+      selector:
+        select:
+          translation_key: reason
+          options:
+            - privatparkplatz
+            - kundenparkplatz
+            - ausfahrt
+            - parkplatz_blockiert
+            - zugang
+            - leistungsbetrug
+            - ladesaeule
+    vertragsstrafe:
+      selector:
+        number:
+          min: 1
+          max: 70
+          unit_of_measurement: "€"
+          mode: box
+    abmahnen:
+      selector:
+        boolean:
+    fahrzeug:
+      example: VW Golf, schwarz
+      selector:
+        text:
+    bemerkung:
+      selector:
+        text:
+          multiline: true
+    bilder:
+      required: true
+      example: '["/config/www/parken/einfahrt.jpg", "/config/www/parken/ausfahrt.jpg"]'
+      selector:
+        object:
+    vorgang_id:
+      example: parkvorgang-20261102-0814
+      selector:
+        text:

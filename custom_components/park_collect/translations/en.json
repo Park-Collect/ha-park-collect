@@ -1,0 +1,75 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect Park & Collect",
+        "description": "Create an API key in the Park & Collect app under Profile → API access.",
+        "data": { "api_key": "API key" }
+      },
+      "reauth_confirm": {
+        "title": "Renew API key",
+        "description": "The API key is no longer valid. Create a new one in the app under Profile → API access.",
+        "data": { "api_key": "API key" }
+      }
+    },
+    "error": {
+      "invalid_auth": "The API key is invalid, or the account has no signed power of attorney.",
+      "cannot_connect": "Park & Collect cannot be reached."
+    },
+    "abort": {
+      "already_configured": "This API key is already set up.",
+      "reauth_successful": "The API key was updated."
+    }
+  },
+  "entity": {
+    "select": {
+      "parking_lot": { "name": "Default parking lot" }
+    },
+    "sensor": {
+      "last_report": {
+        "name": "Last report",
+        "state": {
+          "offen": "Open",
+          "halterermittlung_laeuft": "Owner lookup running",
+          "halter_ermittelt": "Owner found",
+          "erstschreiben_versendet": "First letter sent",
+          "abmahnung_versendet": "Cease-and-desist letter sent",
+          "bezahlt": "Paid",
+          "abgeschlossen": "Closed"
+        }
+      }
+    }
+  },
+  "selector": {
+    "reason": {
+      "options": {
+        "privatparkplatz": "Parking on private parking space",
+        "kundenparkplatz": "Parking on customer parking space",
+        "ausfahrt": "Blocking the exit",
+        "parkplatz_blockiert": "Blocking the parking space",
+        "zugang": "Blocked access to private property",
+        "leistungsbetrug": "Service fraud",
+        "ladesaeule": "Blocking the charging station"
+      }
+    }
+  },
+  "services": {
+    "submit_report": {
+      "name": "Submit report",
+      "description": "Sends a parking violation that a person has reviewed to Park & Collect.",
+      "fields": {
+        "parkplatz_id": { "name": "Parking lot ID", "description": "ID of the parking lot. Without it, the default parking lot is used." },
+        "kennzeichen": { "name": "License plate", "description": "German license plate, reviewed by a person." },
+        "beginn": { "name": "Start", "description": "Start of the violation." },
+        "ende": { "name": "End", "description": "End of the stay." },
+        "grund": { "name": "Reason", "description": "Reason for the report." },
+        "vertragsstrafe": { "name": "Amount", "description": "Amount in whole euros. Without it, the amount of the parking lot is used." },
+        "abmahnen": { "name": "Cease-and-desist letter", "description": "Without it, the setting of the parking lot is used." },
+        "fahrzeug": { "name": "Vehicle", "description": "Make, model, color." },
+        "bemerkung": { "name": "Remark", "description": "Free text, up to 2,000 characters." },
+        "bilder": { "name": "Photos", "description": "1 to 3 local files (JPEG or PNG), as paths or as entries with pfad and aufgenommen_am." },
+        "vorgang_id": { "name": "Event ID", "description": "Unique ID of the parking event. Prevents duplicate reports. Without it, parking lot, plate and start are used." }
+      }
+    }
+  }
+}
